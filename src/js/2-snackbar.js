@@ -15,27 +15,27 @@ function handlerSubmit(event) {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       if (radioBtn === 'fulfilled') {
-        resolve();
+        resolve(delay);
       } else {
-        reject();
+        reject(delay);
       }
     }, delay);
   });
   promise
-    .then(() => {
+    .then(value => {
       iziToast.show({
         messageColor: 'white',
         position: 'topRight',
         color: 'green',
-        message: `✅ Fulfilled promise in ${delay}ms`,
+        message: `✅ Fulfilled promise in ${value}ms`,
       });
     })
-    .catch(() => {
+    .catch(value => {
       iziToast.show({
         messageColor: 'white',
         position: 'topRight',
         color: 'red',
-        message: `❌ Fulfilled promise in ${delay}ms`,
+        message: `❌ Rejected promise in ${value}ms`,
       });
     });
   elements.reset();

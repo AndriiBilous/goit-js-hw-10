@@ -9,7 +9,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 const input = document.querySelector('#datetime-picker');
 
 const button = document.querySelector('[data-start]');
-button.disabled = 'notActive';
+button.disabled = true;
 
 let userSelectedDate = null;
 let interval = null;
@@ -60,8 +60,8 @@ button.addEventListener('click', handlerClick);
 
 let intervalId = null;
 function handlerClick() {
-  button.disabled = 'notActive';
-  input.disabled = 'notActive';
+  button.disabled = true;
+  input.disabled = true;
   intervalId = setInterval(() => {
     const date = userSelectedDate - Date.now();
     newTime(convertMs(date));
